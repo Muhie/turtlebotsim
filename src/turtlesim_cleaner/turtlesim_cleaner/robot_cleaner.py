@@ -22,28 +22,43 @@ class Driver_Node(Node):
         self.pose = Pose()
 
     def update_pose(self, data):
-        """Callback function which is called when a new message of type Pose is
-        received by the subscriber."""
+        """A callback method that is called when a new 
+        message with the type Pose is recieved by the subscriber"""
         self.pose = data
-        self.pose.x = round(self.pose.x, 4)
-        self.pose.y = round(self.pose.y, 4)
+        self.pose_x = round(self.pose, 4)
+        self.pose_y = round(self.pose, 4)
 
     def euclidean_distance(self, goal_pose):
-        """Euclidean distance between current pose and the goal."""
-        return sqrt(pow((goal_pose.x - self.pose.x), 2) +
-                    pow((goal_pose.y - self.pose.y), 2))
-
+        """A method that calculates the euclidean 
+        distance between the curent and the goal pose"""
+        return sqrt((goal_pose.x - self.pose.x)**2 
+                    + (goal_pose.y - self.pose.y)**2)
+    
     def linear_vel(self, goal_pose, constant=1.5):
-        """See video: https://www.youtube.com/watch?v=Qh15Nol5htM."""
+        """Moving faster when further away and slower when closer to the target pose"""
         return constant * self.euclidean_distance(goal_pose)
-
+    
     def steering_angle(self, goal_pose):
-        """See video: https://www.youtube.com/watch?v=Qh15Nol5htM."""
-        return atan2(goal_pose.y - self.pose.y, goal_pose.x - self.pose.x)
-
-    def angular_vel(self, goal_pose, constant=6):
-        """See video: https://www.youtube.com/watch?v=Qh15Nol5htM."""
+        """again just using simple trig here"""
+        return atan2(goal_pose.y - self.pose.y, goal_pose.x - self.pose.y)
+    
+    def angular_vel(self, goal_pose, constant = 6):
         return constant * (self.steering_angle(goal_pose) - self.pose.theta)
+    
+    def move_to_goal(self):
+        """A method to move the turtle to the goal position"""
+
+        goal_pose = Pose()
+
+        # get the goal position from the user
+
+        goal_pose.x = float(input("please enter the target x coordinate that the turtle needs to move toward: "))
+        goal_pose.y = float(input("please enter the target y coordinate that the turtle needs to move toward: "))
+
+        distance_tolerance = input("set your tolerance")
+
+        vel_msg = Twist()
+
 
     def move_to_goal(self):
         """A method to move the turtle to the goal position"""
