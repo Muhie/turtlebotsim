@@ -1,0 +1,24 @@
+[0.652s] Invoking command in '/home/muhie/Desktop/dev_ps/src/turtlesim_cleaner': PYTHONPATH=/home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/turtlesim_cleaner build --build-base /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build install --record /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/install.log --single-version-externally-managed install_data
+[0.915s] running egg_info
+[0.916s] writing ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/PKG-INFO
+[0.916s] writing dependency_links to ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/dependency_links.txt
+[0.917s] writing entry points to ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/entry_points.txt
+[0.917s] writing requirements to ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/requires.txt
+[0.917s] writing top-level names to ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/top_level.txt
+[0.918s] reading manifest file '../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/SOURCES.txt'
+[0.919s] writing manifest file '../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/SOURCES.txt'
+[0.919s] running build
+[0.920s] running build_py
+[0.920s] copying turtlesim_cleaner/robot_cleaner.py -> /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build/lib/turtlesim_cleaner
+[0.920s] running install
+[0.920s] running install_lib
+[0.921s] copying /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build/lib/turtlesim_cleaner/robot_cleaner.py -> /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner
+[0.921s] byte-compiling /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner/robot_cleaner.py to robot_cleaner.cpython-310.pyc
+[0.922s] running install_data
+[0.922s] running install_egg_info
+[0.924s] removing '/home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner-0.0.0-py3.10.egg-info' (and everything under it)
+[0.924s] Copying ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info to /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner-0.0.0-py3.10.egg-info
+[0.925s] running install_scripts
+[0.943s] Installing robot_cleaner script to /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/turtlesim_cleaner
+[0.943s] writing list of installed files to '/home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/install.log'
+[0.965s] Invoked command in '/home/muhie/Desktop/dev_ps/src/turtlesim_cleaner' returned '0': PYTHONPATH=/home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/turtlesim_cleaner build --build-base /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build install --record /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/install.log --single-version-externally-managed install_data

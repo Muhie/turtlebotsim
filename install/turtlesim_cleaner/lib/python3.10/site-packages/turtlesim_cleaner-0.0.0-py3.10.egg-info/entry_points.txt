@@ -1,0 +1,3 @@
+[console_scripts]
+robot_cleaner = turtlesim_cleaner.robot_cleaner:main
+

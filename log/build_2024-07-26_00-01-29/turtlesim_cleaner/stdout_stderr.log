@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info
+writing ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/PKG-INFO
+writing dependency_links to ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/dependency_links.txt
+writing entry points to ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/entry_points.txt
+writing requirements to ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/requires.txt
+writing top-level names to ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/top_level.txt
+writing manifest file '../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/SOURCES.txt'
+reading manifest file '../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/SOURCES.txt'
+writing manifest file '../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build
+creating /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build/lib
+creating /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build/lib/turtlesim_cleaner
+copying turtlesim_cleaner/robot_cleaner.py -> /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build/lib/turtlesim_cleaner
+copying turtlesim_cleaner/__init__.py -> /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build/lib/turtlesim_cleaner
+running install
+running install_lib
+creating /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner
+copying /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build/lib/turtlesim_cleaner/robot_cleaner.py -> /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner
+copying /home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/build/lib/turtlesim_cleaner/__init__.py -> /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner
+byte-compiling /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner/robot_cleaner.py to robot_cleaner.cpython-310.pyc
+byte-compiling /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/share/ament_index
+creating /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/share/ament_index/resource_index
+creating /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/share/ament_index/resource_index/packages
+copying resource/turtlesim_cleaner -> /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/share/ament_index/resource_index/packages
+copying package.xml -> /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/share/turtlesim_cleaner
+running install_egg_info
+Copying ../../build/turtlesim_cleaner/turtlesim_cleaner.egg-info to /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/python3.10/site-packages/turtlesim_cleaner-0.0.0-py3.10.egg-info
+running install_scripts
+Installing robot_cleaner script to /home/muhie/Desktop/dev_ps/install/turtlesim_cleaner/lib/turtlesim_cleaner
+writing list of installed files to '/home/muhie/Desktop/dev_ps/build/turtlesim_cleaner/install.log'
