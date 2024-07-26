@@ -4,8 +4,10 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
-from math import pow, atan2, sqrt
+import math
 import numpy as np
+import time
+import sys
 # Muhie
 # 25/07/24
 """"A program that allows a player to enter a target point 
@@ -18,87 +20,47 @@ class Driver_Node(Node):
         super().__init__('driving_custom_Node')
         self.publisher_ = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
         self.subscriber_ = self.create_subscription(Pose, '/turtle1/pose', self.update_pose, 10)
-        self.timer = self.create_timer(1, self.move_to_goal)
+        self.timer = self.create_timer(0.1, self.move_to_goal)
         self.pose = Pose()
+
 
     def update_pose(self, data):
         """A callback method that is called when a new 
         message with the type Pose is recieved by the subscriber"""
         self.pose = data
-        self.pose_x = round(self.pose, 4)
-        self.pose_y = round(self.pose, 4)
-
-    def euclidean_distance(self, goal_pose):
-        """A method that calculates the euclidean 
-        distance between the curent and the goal pose"""
-        return sqrt((goal_pose.x - self.pose.x)**2 
-                    + (goal_pose.y - self.pose.y)**2)
-    
-    def linear_vel(self, goal_pose, constant=1.5):
-        """Moving faster when further away and slower when closer to the target pose"""
-        return constant * self.euclidean_distance(goal_pose)
-    
-    def steering_angle(self, goal_pose):
-        """again just using simple trig here"""
-        return atan2(goal_pose.y - self.pose.y, goal_pose.x - self.pose.y)
-    
-    def angular_vel(self, goal_pose, constant = 6):
-        return constant * (self.steering_angle(goal_pose) - self.pose.theta)
-    
-    def move_to_goal(self):
-        """A method to move the turtle to the goal position"""
-
-        goal_pose = Pose()
-
-        # get the goal position from the user
-
-        goal_pose.x = float(input("please enter the target x coordinate that the turtle needs to move toward: "))
-        goal_pose.y = float(input("please enter the target y coordinate that the turtle needs to move toward: "))
-
-        distance_tolerance = input("set your tolerance")
-
-        vel_msg = Twist()
-
 
     def move_to_goal(self):
-        """A method to move the turtle to the goal position"""
+        """ A method that moves toward the goal when 3 values are passed to it"""
 
-        goal_pose = Pose()
+        goal = Pose()
+        goal.x = float(sys.argv[1])
+        goal.y = float(sys.argv[2])
+        goal.theta = float(sys.argv[3])
 
-        # get the goal position from the user
+        new_vel = Twist()
 
-        goal_pose.x = float(input("please enter the target x coordinate that the turtle needs to move toward: "))
-        goal_pose.y = float(input("please enter the target y coordinate that the turtle needs to move toward: "))
+        distance_to_goal = math.sqrt((goal.x - self.pose.x)**2 + (goal.y - self.pose.y)**2)
 
-        distance_tolerance = float(input("set your tolerance: "))
-        vel_msg = Twist()
+        angle_to_goal = math.atan2(goal.y - self.pose.y, goal.x - self.pose.x)
 
-        while self.euclidean_distance(goal_pose) > distance_tolerance:
-            # proportional control
-            #  Linear velocity in the x direction
-            vel_msg.linear.x = self.linear_vel(goal_pose)
-            vel_msg.linear.y = 0.0
-            vel_msg.linear.z = 0.0
+        distance_tolerance = 0.1
+        angle_tolerance = 0.01
 
-            # angular velocity in the z axis (rotational velocity of the turtle)
+        angle_error = angle_to_goal - self.pose.theta
 
-            vel_msg.angular.x = 0.0
-            vel_msg.angular.y = 0.0
-            vel_msg.angular.z = self.angular_vel(goal_pose)
+        kp = 1.4
 
-            # publishing vel message
+        if abs(angle_error) > angle_tolerance:
+            new_vel.angular.z = kp * angle_error
+        else:
+            if (distance_to_goal) >= distance_tolerance:
+                new_vel.linear.x = kp * distance_to_goal
+            else:
+                new_vel.linear.x = 0.0
+                self.get_logger().info("goal reached")
+                quit()
 
-            self.publisher_.publish(vel_msg)
-
-            # publish at desired rate
-
-
-        vel_msg.linear.x = 0.0
-        vel_msg.angular.z = 0.0
-        self.publisher_.publish(vel_msg)
-
-        # Allows us to stop the program with control c
-
+        self.publisher_.publish(new_vel)
 
 def main(args=None):
     rclpy.init(args=args)
